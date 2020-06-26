@@ -12,9 +12,9 @@ import com.allianity.common.utils.ExceptionUtil;
 import com.allianity.common.utils.StringUtils;
 import com.allianity.common.utils.bean.BeanUtils;
 import com.allianity.common.utils.spring.SpringUtils;
-import com.allianity.project.monitor.domain.SysJob;
-import com.allianity.project.monitor.domain.SysJobLog;
-import com.allianity.project.monitor.service.ISysJobLogService;
+import com.allianity.paperless.monitor.domain.SysJob;
+import com.allianity.paperless.monitor.domain.SysJobLog;
+import com.allianity.paperless.monitor.service.ISysJobLogService;
 
 /**
  * 抽象quartz调用

@@ -1,7 +1,7 @@
 package com.allianity.common.utils.job;
 
 import org.quartz.JobExecutionContext;
-import com.allianity.project.monitor.domain.SysJob;
+import com.allianity.paperless.monitor.domain.SysJob;
 
 /**
  * 定时任务处理（允许并发执行）

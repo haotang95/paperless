@@ -2,7 +2,7 @@ package com.allianity.common.utils.job;
 
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
-import com.allianity.project.monitor.domain.SysJob;
+import com.allianity.paperless.monitor.domain.SysJob;
 
 /**
  * 定时任务处理（禁止并发执行）

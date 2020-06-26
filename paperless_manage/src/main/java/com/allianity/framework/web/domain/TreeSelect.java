@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.allianity.project.system.domain.SysDept;
-import com.allianity.project.system.domain.SysMenu;
+import com.allianity.paperless.system.domain.SysDept;
+import com.allianity.paperless.system.domain.SysMenu;
 
 /**
  * Treeselect树结构实体类

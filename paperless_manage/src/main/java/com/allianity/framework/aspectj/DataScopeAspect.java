@@ -15,8 +15,8 @@ import com.allianity.framework.aspectj.lang.annotation.DataScope;
 import com.allianity.framework.security.LoginUser;
 import com.allianity.framework.security.service.TokenService;
 import com.allianity.framework.web.domain.BaseEntity;
-import com.allianity.project.system.domain.SysRole;
-import com.allianity.project.system.domain.SysUser;
+import com.allianity.paperless.system.domain.SysRole;
+import com.allianity.paperless.system.domain.SysUser;
 
 /**
  * 数据过滤处理

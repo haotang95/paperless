@@ -13,7 +13,7 @@ import org.quartz.TriggerKey;
 import com.allianity.common.constant.ScheduleConstants;
 import com.allianity.common.exception.job.TaskException;
 import com.allianity.common.exception.job.TaskException.Code;
-import com.allianity.project.monitor.domain.SysJob;
+import com.allianity.paperless.monitor.domain.SysJob;
 
 /**
  * 定时任务工具类

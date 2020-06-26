@@ -5,7 +5,7 @@ import java.util.List;
 import com.allianity.common.constant.Constants;
 import com.allianity.common.utils.spring.SpringUtils;
 import com.allianity.framework.redis.RedisCache;
-import com.allianity.project.system.domain.SysDictData;
+import com.allianity.paperless.system.domain.SysDictData;
 
 /**
  * 字典工具类

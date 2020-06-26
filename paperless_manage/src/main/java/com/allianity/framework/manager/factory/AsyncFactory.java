@@ -9,10 +9,10 @@ import com.allianity.common.utils.ServletUtils;
 import com.allianity.common.utils.ip.AddressUtils;
 import com.allianity.common.utils.ip.IpUtils;
 import com.allianity.common.utils.spring.SpringUtils;
-import com.allianity.project.monitor.domain.SysLogininfor;
-import com.allianity.project.monitor.domain.SysOperLog;
-import com.allianity.project.monitor.service.ISysLogininforService;
-import com.allianity.project.monitor.service.ISysOperLogService;
+import com.allianity.paperless.monitor.domain.SysLogininfor;
+import com.allianity.paperless.monitor.domain.SysOperLog;
+import com.allianity.paperless.monitor.service.ISysLogininforService;
+import com.allianity.paperless.monitor.service.ISysOperLogService;
 import eu.bitwalker.useragentutils.UserAgent;
 
 /**

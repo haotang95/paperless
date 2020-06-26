@@ -4,9 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.allianity.project.system.domain.SysUser;
-import com.allianity.project.system.service.ISysMenuService;
-import com.allianity.project.system.service.ISysRoleService;
+import com.allianity.paperless.system.domain.SysUser;
+import com.allianity.paperless.system.service.ISysMenuService;
+import com.allianity.paperless.system.service.ISysRoleService;
 
 /**
  * 用户权限处理

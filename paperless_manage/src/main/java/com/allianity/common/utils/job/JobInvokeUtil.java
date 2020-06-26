@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import com.allianity.common.utils.StringUtils;
 import com.allianity.common.utils.spring.SpringUtils;
-import com.allianity.project.monitor.domain.SysJob;
+import com.allianity.paperless.monitor.domain.SysJob;
 
 /**
  * 任务执行工具

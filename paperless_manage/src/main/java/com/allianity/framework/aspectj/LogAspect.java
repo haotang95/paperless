@@ -28,7 +28,7 @@ import com.allianity.framework.manager.AsyncManager;
 import com.allianity.framework.manager.factory.AsyncFactory;
 import com.allianity.framework.security.LoginUser;
 import com.allianity.framework.security.service.TokenService;
-import com.allianity.project.monitor.domain.SysOperLog;
+import com.allianity.paperless.monitor.domain.SysOperLog;
 
 /**
  * 操作日志记录处理

@@ -11,8 +11,8 @@ import com.allianity.common.enums.UserStatus;
 import com.allianity.common.exception.BaseException;
 import com.allianity.common.utils.StringUtils;
 import com.allianity.framework.security.LoginUser;
-import com.allianity.project.system.domain.SysUser;
-import com.allianity.project.system.service.ISysUserService;
+import com.allianity.paperless.system.domain.SysUser;
+import com.allianity.paperless.system.service.ISysUserService;
 
 /**
  * 用户验证处理

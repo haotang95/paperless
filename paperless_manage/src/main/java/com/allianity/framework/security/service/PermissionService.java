@@ -7,7 +7,7 @@ import org.springframework.util.CollectionUtils;
 import com.allianity.common.utils.ServletUtils;
 import com.allianity.common.utils.StringUtils;
 import com.allianity.framework.security.LoginUser;
-import com.allianity.project.system.domain.SysRole;
+import com.allianity.paperless.system.domain.SysRole;
 
 /**
  * RuoYi首创 自定义权限实现，ss取自SpringSecurity首字母
