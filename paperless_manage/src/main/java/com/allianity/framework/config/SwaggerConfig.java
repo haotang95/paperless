@@ -29,9 +29,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig
 {
-    /** 系统基础配置 */
-    @Autowired
-    private RuoYiConfig ruoyiConfig;
 
     /** 是否开启swagger */
     @Value("${swagger.enabled}")
@@ -116,9 +113,9 @@ public class SwaggerConfig
                 // 描述
                 .description("描述：用于管理集团旗下公司的人员信息,具体包括XXX,XXX模块...")
                 // 作者信息
-                .contact(new Contact(ruoyiConfig.getName(), null, null))
+                .contact(new Contact("allianity", null, null))
                 // 版本
-                .version("版本号:" + ruoyiConfig.getVersion())
+                .version("版本号:1.0.0")
                 .build();
     }
 }

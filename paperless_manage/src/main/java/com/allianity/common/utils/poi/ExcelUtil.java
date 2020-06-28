@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
+import com.allianity.common.utils.PropertiesUtil;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
@@ -43,7 +45,6 @@ import com.allianity.framework.aspectj.lang.annotation.Excel;
 import com.allianity.framework.aspectj.lang.annotation.Excel.ColumnType;
 import com.allianity.framework.aspectj.lang.annotation.Excel.Type;
 import com.allianity.framework.aspectj.lang.annotation.Excels;
-import com.allianity.framework.config.RuoYiConfig;
 import com.allianity.framework.web.domain.AjaxResult;
 import com.allianity.common.core.text.Convert;
 import com.allianity.common.exception.CustomException;
@@ -680,7 +681,7 @@ public class ExcelUtil<T>
      */
     public String getAbsoluteFile(String filename)
     {
-        String downloadPath = RuoYiConfig.getDownloadPath() + filename;
+        String downloadPath = PropertiesUtil.getProperty("file.uploadPath") + filename;
         File desc = new File(downloadPath);
         if (!desc.getParentFile().exists())
         {

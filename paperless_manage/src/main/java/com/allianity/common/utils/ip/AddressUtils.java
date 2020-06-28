@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.allianity.common.constant.Constants;
 import com.allianity.common.utils.StringUtils;
 import com.allianity.common.utils.http.HttpUtils;
-import com.allianity.framework.config.RuoYiConfig;
 
 /**
  * 获取地址类
@@ -31,7 +30,7 @@ public class AddressUtils
         {
             return "内网IP";
         }
-        if (RuoYiConfig.isAddressEnabled())
+        if (true)
         {
             try
             {

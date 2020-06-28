@@ -16,6 +16,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 /**
  * spring redis 工具类
  * 
@@ -25,8 +27,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class RedisCache
 {
+    public static RedisCache redisCache;
+
     @Autowired
     public RedisTemplate redisTemplate;
+
+    @PostConstruct
+    public void init(){
+        redisCache = this;
+        redisCache.redisTemplate = this.redisTemplate;
+    }
+
+    public static RedisTemplate getRedisTemplate(){
+        return redisCache.redisTemplate;
+    }
 
     /**
      * 缓存基本的对象，Integer、String、实体类等
@@ -37,7 +51,7 @@ public class RedisCache
      */
     public <T> ValueOperations<String, T> setCacheObject(String key, T value)
     {
-        ValueOperations<String, T> operation = redisTemplate.opsForValue();
+        ValueOperations<String, T> operation = getRedisTemplate().opsForValue();
         operation.set(key, value);
         return operation;
     }
@@ -53,7 +67,7 @@ public class RedisCache
      */
     public <T> ValueOperations<String, T> setCacheObject(String key, T value, Integer timeout, TimeUnit timeUnit)
     {
-        ValueOperations<String, T> operation = redisTemplate.opsForValue();
+        ValueOperations<String, T> operation = getRedisTemplate().opsForValue();
         operation.set(key, value, timeout, timeUnit);
         return operation;
     }
@@ -66,7 +80,7 @@ public class RedisCache
      */
     public <T> T getCacheObject(String key)
     {
-        ValueOperations<String, T> operation = redisTemplate.opsForValue();
+        ValueOperations<String, T> operation = getRedisTemplate().opsForValue();
         return operation.get(key);
     }
 
@@ -77,7 +91,7 @@ public class RedisCache
      */
     public void deleteObject(String key)
     {
-        redisTemplate.delete(key);
+        getRedisTemplate().delete(key);
     }
 
     /**
@@ -87,7 +101,7 @@ public class RedisCache
      */
     public void deleteObject(Collection collection)
     {
-        redisTemplate.delete(collection);
+        getRedisTemplate().delete(collection);
     }
 
     /**
@@ -99,7 +113,7 @@ public class RedisCache
      */
     public <T> ListOperations<String, T> setCacheList(String key, List<T> dataList)
     {
-        ListOperations listOperation = redisTemplate.opsForList();
+        ListOperations listOperation = getRedisTemplate().opsForList();
         if (null != dataList)
         {
             int size = dataList.size();
@@ -120,7 +134,7 @@ public class RedisCache
     public <T> List<T> getCacheList(String key)
     {
         List<T> dataList = new ArrayList<T>();
-        ListOperations<String, T> listOperation = redisTemplate.opsForList();
+        ListOperations<String, T> listOperation = getRedisTemplate().opsForList();
         Long size = listOperation.size(key);
 
         for (int i = 0; i < size; i++)
@@ -139,7 +153,7 @@ public class RedisCache
      */
     public <T> BoundSetOperations<String, T> setCacheSet(String key, Set<T> dataSet)
     {
-        BoundSetOperations<String, T> setOperation = redisTemplate.boundSetOps(key);
+        BoundSetOperations<String, T> setOperation = getRedisTemplate().boundSetOps(key);
         Iterator<T> it = dataSet.iterator();
         while (it.hasNext())
         {
@@ -157,7 +171,7 @@ public class RedisCache
     public <T> Set<T> getCacheSet(String key)
     {
         Set<T> dataSet = new HashSet<T>();
-        BoundSetOperations<String, T> operation = redisTemplate.boundSetOps(key);
+        BoundSetOperations<String, T> operation = getRedisTemplate().boundSetOps(key);
         dataSet = operation.members();
         return dataSet;
     }
@@ -171,7 +185,7 @@ public class RedisCache
      */
     public <T> HashOperations<String, String, T> setCacheMap(String key, Map<String, T> dataMap)
     {
-        HashOperations hashOperations = redisTemplate.opsForHash();
+        HashOperations hashOperations = getRedisTemplate().opsForHash();
         if (null != dataMap)
         {
             for (Map.Entry<String, T> entry : dataMap.entrySet())
@@ -190,7 +204,7 @@ public class RedisCache
      */
     public <T> Map<String, T> getCacheMap(String key)
     {
-        Map<String, T> map = redisTemplate.opsForHash().entries(key);
+        Map<String, T> map = getRedisTemplate().opsForHash().entries(key);
         return map;
     }
 
@@ -202,6 +216,6 @@ public class RedisCache
      */
     public Collection<String> keys(String pattern)
     {
-        return redisTemplate.keys(pattern);
+        return getRedisTemplate().keys(pattern);
     }
 }

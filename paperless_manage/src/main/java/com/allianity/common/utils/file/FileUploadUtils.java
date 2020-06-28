@@ -2,6 +2,9 @@ package com.allianity.common.utils.file;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
+
+import com.allianity.common.utils.PropertiesUtil;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
 import com.allianity.common.constant.Constants;
@@ -11,7 +14,6 @@ import com.allianity.common.exception.file.InvalidExtensionException;
 import com.allianity.common.utils.DateUtils;
 import com.allianity.common.utils.StringUtils;
 import com.allianity.common.utils.security.Md5Utils;
-import com.allianity.framework.config.RuoYiConfig;
 
 /**
  * 文件上传工具类
@@ -33,7 +35,7 @@ public class FileUploadUtils
     /**
      * 默认上传的地址
      */
-    private static String defaultBaseDir = RuoYiConfig.getProfile();
+    private static String defaultBaseDir = PropertiesUtil.getProperty("file.uploadPath");
 
     private static int counter = 0;
 
@@ -146,9 +148,8 @@ public class FileUploadUtils
 
     private static final String getPathFileName(String uploadDir, String fileName) throws IOException
     {
-        int dirLastIndex = RuoYiConfig.getProfile().length() + 1;
-        String currentDir = StringUtils.substring(uploadDir, dirLastIndex);
-        String pathFileName = Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
+
+        String pathFileName = Constants.RESOURCE_PREFIX + "/" + "yxdat" + "/" + fileName;
         return pathFileName;
     }
 

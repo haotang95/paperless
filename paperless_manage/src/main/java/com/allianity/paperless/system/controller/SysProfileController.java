@@ -1,6 +1,8 @@
 package com.allianity.paperless.system.controller;
 
 import java.io.IOException;
+
+import com.allianity.common.utils.PropertiesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +17,6 @@ import com.allianity.common.utils.ServletUtils;
 import com.allianity.common.utils.file.FileUploadUtils;
 import com.allianity.framework.aspectj.lang.annotation.Log;
 import com.allianity.framework.aspectj.lang.enums.BusinessType;
-import com.allianity.framework.config.RuoYiConfig;
 import com.allianity.framework.security.LoginUser;
 import com.allianity.framework.security.service.TokenService;
 import com.allianity.framework.web.controller.BaseController;
@@ -111,7 +112,7 @@ public class SysProfileController extends BaseController
         if (!file.isEmpty())
         {
             LoginUser loginUser = tokenService.getLoginUser(ServletUtils.getRequest());
-            String avatar = FileUploadUtils.upload(RuoYiConfig.getAvatarPath(), file);
+            String avatar = FileUploadUtils.upload(PropertiesUtil.getProperty("file.uploadPath"), file);
             if (userService.updateUserAvatar(loginUser.getUsername(), avatar))
             {
                 AjaxResult ajax = AjaxResult.success();
