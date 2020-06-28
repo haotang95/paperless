@@ -42,6 +42,19 @@ public class RedisCache
         return redisCache.redisTemplate;
     }
 
+    public static void setValue(String key, Object value){
+        getRedisTemplate().opsForValue().set(key, value);
+    }
+
+    public static void setValue(String key, Object value, long time, TimeUnit timeUnit){
+        getRedisTemplate().opsForValue().set(key, value, time, timeUnit);
+    }
+
+    public static String getValue(String key){
+        Object value = getRedisTemplate().opsForValue().get(key);
+        return String.valueOf(value);
+    }
+
     /**
      * 缓存基本的对象，Integer、String、实体类等
      *
